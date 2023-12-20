@@ -1,10 +1,19 @@
-public class Arrayinjava {
-    public static void main(String args[]){
-        //creating an array
-        int marks[] = new int[50];
+import java.util.*;
 
-        int numbers[]= {1,2,3};
-        int morenumbers[]= {4,5,6};
-        String Fruits[]= {"Apple","Mango","Pineapple"};
+public class Arrayinjava {
+    public static void update(int marks[]){
+        for(int i=0; i<marks.length; i++){
+            marks[i] = marks[i] + 1;
+        }
     }
-}
+
+    public static void main(String args[]){
+        int marks[]= {96, 97, 98};
+        update(marks);
+        //print array marks
+        for(int i=0; i<marks.length; i++){
+            System.out.println(marks[i]+" ");
+        }
+        System.out.println();
+    }
+}    
