@@ -1,52 +1,34 @@
 import java.util.*;
 
 public class Arrayinjava {
-    public static void maxsubarrays(int numbers[]){          //Prifix sum 
-        int currsum=0;
-        int maxSum = Integer.MIN_VALUE;
-        int prefix[] = new int[numbers.length];        
-
-        prefix[0] = numbers[0];
-        //calculate prefix sum 
-        for(int i=1; i<prefix.length; i++){
-            prefix[i] = prefix[i-1] + numbers[i];
+    public static int trappedRainwater(int height[]) {
+        int n =height.length;
+        //calculate left max boundary - array                 //auxilary arrays i.e. Helper arrays
+        int leftMax[]= new int[height.length];
+        leftMax[0]=height[0];
+        for(int i=1;i<n;i++){
+            leftMax[i]=Math.max(height[i], leftMax[i-1]);
         }
-        for(int i=0;i<numbers.length; i++){
-            int start=i;
-            for(int j=i;j<numbers.length; j++){ 
-                int end = j;
-
-                currsum = start == 0 ? prefix[end] : prefix[end] - prefix[start-1];
-
-                if(maxSum<currsum){
-                    maxSum=currsum;
-                }
-            }
+        //calculate left max boundary - array                 //auxilary arrays i.e. Helper arrays
+        int RightMax[]= new int[height.length];
+        RightMax[n-1]=height[n-1];
+        for(int i=n-2;i>=0;i--){
+            RightMax[i]=Math.max(height[i], RightMax[i+1]);
         }
-
-        System.out.println("Max sum = "+ maxSum);
-    }
-
-    public static void kadanes(int numbers[]){
-        int ms = Integer.MIN_VALUE;
-        int cs = 0;
-
-        for(int i=0; i< numbers.length; i++){
-            cs= cs+numbers[i];
-            if(cs<0){
-                cs=0;
-            }
-            ms = Math.max(cs,ms);
+        
+        int trappedwater = 0;
+        //loop 
+        for(int i =0;i<height.length;i++){
+            int waterlevel = Math.min(leftMax[i],RightMax[i]);
+            trappedwater += waterlevel - height[i];
         }
 
-        System.out.println("our max subarray sum is : " + ms);
-
-
+        return trappedwater;
+        //waterlevel = min(leftmax boundary,rightmax boundary)
+        //trapped watter = waterlevel - height[i]
     }
     public static void main(String args[]){
-        int numbers[] = {2,4,-6,8,10,-22,14-16};
-
-        maxsubarrays(numbers);
-        kadanes(numbers);
-        }   
-}    
+        int height[] = {4,2,0,6,3,2,5};
+        System.out.println(trappedRainwater(height));
+    } 
+}   
