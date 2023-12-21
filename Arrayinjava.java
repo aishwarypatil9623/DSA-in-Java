@@ -1,27 +1,30 @@
 import java.util.*;
 
 public class Arrayinjava {
-    public static void reverse(int numbers[]){
-        int first = 0,last  = numbers.length-1;
-        
-        while(first<last){
-            //swap
-            int temp = numbers[last];
-            numbers[last] = numbers[first];
-            numbers[first] = temp;
+    public static void maxsubarrays(int numbers[]){
+        int currsum=0;
 
-            first++;                                 //first index will move forward
-            last--;                                  //last index will move backwards
+        int maxSum=Integer.MIN_VALUE;
+        for(int i=0;i<numbers.length; i++){
+            int start=i;
+            for(int j=i;j<numbers.length; j++){
+                int end = j;
+                currsum=0;
+                for(int k=start; k<=end; k++){         
+                    currsum+=numbers[k];
+                }
+                System.out.println(currsum);
+                if(maxSum<currsum){
+                    maxSum=currsum;
+                }
+            }
         }
 
+        System.out.println("Max sum = "+ maxSum);
     }
     public static void main(String args[]){
-        int numbers[] = {2,4,6,8,10,32,14,16};
+        int numbers[] = {2,4,6,8,10,12,14,16};
 
-        reverse(numbers);
-        for(int i=0; i<numbers.length; i++){
-            System.out.print(numbers[i]+" ");
-        }
-        System.out.println();
+        maxsubarrays(numbers);
         }   
 }    
