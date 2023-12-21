@@ -1,27 +1,27 @@
 import java.util.*;
 
 public class Arrayinjava {
-    public static int Binarysearch(int numbers[], int key){      //Log n to the base 2 time complexity
-        int start = 0,end = numbers.length-1; 
+    public static void reverse(int numbers[]){
+        int first = 0,last  = numbers.length-1;
+        
+        while(first<last){
+            //swap
+            int temp = numbers[last];
+            numbers[last] = numbers[first];
+            numbers[first] = temp;
 
-        while(start<=end){
-            int mid = (start+ end)/2;
-            //comparisons
-            if (numbers[mid]==key){
-                return mid;
-            }
-            if (numbers[mid]<key){
-                start = mid+1;
-            }   else {
-                end = mid -1;
-            }
+            first++;                                 //first index will move forward
+            last--;                                  //last index will move backwards
         }
 
-        return -1;
     }
     public static void main(String args[]){
         int numbers[] = {2,4,6,8,10,32,14,16};
-        int key = 23;
-        System.out.println("Index for Key "+key +" is "+ Binarysearch(numbers,key)); 
+
+        reverse(numbers);
+        for(int i=0; i<numbers.length; i++){
+            System.out.print(numbers[i]+" ");
+        }
+        System.out.println();
         }   
 }    
