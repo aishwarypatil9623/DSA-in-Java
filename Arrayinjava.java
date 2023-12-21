@@ -1,23 +1,27 @@
 import java.util.*;
 
 public class Arrayinjava {
-    public static int getlargest(int numbers[]){
-        int largest=  Integer.MIN_VALUE;   //- Infinity
-        int smallest= Integer.MAX_VALUE;
+    public static int Binarysearch(int numbers[], int key){      //Log n to the base 2 time complexity
+        int start = 0,end = numbers.length-1; 
 
-        for(int i =0; i<numbers.length; i++){
-            if (numbers[i]>largest) {
-                largest = numbers[i];
+        while(start<=end){
+            int mid = (start+ end)/2;
+            //comparisons
+            if (numbers[mid]==key){
+                return mid;
             }
-            if (numbers[i]<smallest){
-                smallest = numbers[i];
+            if (numbers[mid]<key){
+                start = mid+1;
+            }   else {
+                end = mid -1;
             }
         }
-        System.out.println("Smallest Value is "+smallest);
-        return largest;
+
+        return -1;
     }
     public static void main(String args[]){
         int numbers[] = {2,4,6,8,10,32,14,16};
-        System.out.println("Largest Value is "+ getlargest(numbers));
-        }
+        int key = 23;
+        System.out.println("Index for Key "+key +" is "+ Binarysearch(numbers,key)); 
+        }   
 }    
