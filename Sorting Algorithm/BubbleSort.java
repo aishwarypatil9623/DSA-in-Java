@@ -3,7 +3,7 @@ import java.util.*;
 public class BubbleSort {
     public static void bubblesort(int arr[]){
         for(int turn=0; turn<arr.length-1;turn++){
-            for(int j=0; j<arr.length-i-turn; j++){
+            for(int j=0; j<arr.length-j-turn; j++){
                 if(arr[j] > arr[j+1]){
                     //swap
                     int temp = arr[j];
@@ -21,7 +21,7 @@ public class BubbleSort {
         
     }
     public static void main(String[] args) {
-        int arr[] = {5,3,6,2,7,9,1,};
+        int arr[] = {5,3,6,2,1,9,10};
         bubblesort(arr);
         printarr(arr);
     }
