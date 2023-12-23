@@ -17,15 +17,15 @@ public class Spiralmatrix {
             }
             //bottom
             for(int j=endCol-1;j>=startCol;j--){
-                if(startCol==endCol){
-                    return;
+                if(startRow==endRow){
+                    break;
                 }
                 System.out.print(matrix[endCol][j]+" ");
             }
             //left
             for(int i=endRow-1;i>=startRow+1;i--){
-                if(startRow==endRow){
-                    return;
+                if(startCol==endCol){
+                    break;
                 }
                 System.out.print(matrix[i][startCol]+" ");
             }
