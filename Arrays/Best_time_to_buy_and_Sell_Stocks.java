@@ -1,23 +1,23 @@
 import java.util.*;
 
-public class Arrayinjava {
-    public static int buyandsellstocks(int prices[]){
+public class Best_time_to_buy_and_Sell_Stocks{ // Class name should start with a capital letter
+    public static int buyAndSellStocks(int[] prices) { // Method name should follow camelCase convention
         int buyPrice = Integer.MAX_VALUE;
-        int maxprofit = 0;
+        int maxProfit = 0;
 
-        for(int i=0; i<prices.length; i++){
-            if (buyPrice<prices[i]){
-                int profit = prices[i]-buyPrice;         // Today's Profit
-                maxprofit= Math.max(maxprofit, profit);
-            }else{
-                buyPrice=prices[i];
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < buyPrice) { // Update buyPrice if a lower price is found
+                buyPrice = prices[i];
+            } else if (prices[i] - buyPrice > maxProfit) { // Calculate profit only when a potential sale is possible
+                maxProfit = prices[i] - buyPrice;
             }
         }
-        return maxprofit;
+
+        return maxProfit;
     }
-    
-    public static void main(String args[]){
-        int prices[] = {7,1,5,3,6,4};
-        System.out.println(buyandsellstocks(prices));
-    } 
-}   
+
+    public static void main(String[] args) {
+        int[] prices = {7, 1, 5, 3, 6, 4};
+        System.out.println(buyAndSellStocks(prices));
+    }
+}
