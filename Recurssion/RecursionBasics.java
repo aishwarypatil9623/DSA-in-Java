@@ -34,12 +34,26 @@ public class RecursionBasics {
         int sum = n + Snm1;
         return sum;
     }
+
+    public static int Fibonaaci(int n){
+        if(n==0){
+            return 0;
+        }
+        else if(n==1){
+            return 1;
+        }
+        int fibnm1 = Fibonaaci(n-1);
+        int fibnm2 = Fibonaaci(n-2);
+        int Fib = fibnm1 + fibnm2 ;
+        return Fib;
+    }
     public static void main(String[] args) {
         int n =4 ;
         printDec(n);
         printInc(n);
         System.out.println(Factorial(n));
         System.out.println(sumoffnn(n));
+        System.out.println(Fibonaaci(n));
         
     }
     
