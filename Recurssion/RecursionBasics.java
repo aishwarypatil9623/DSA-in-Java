@@ -25,11 +25,21 @@ public class RecursionBasics {
         int fn = n * Factorial(n-1);
         return fn;
     }
+
+    public static int sumoffnn(int n){   //sum of First n Natural Numbers
+        if(n== 1){
+            return 1;
+        }
+        int Snm1 = sumoffnn(n-1);    //sum of first n-1 natural numbers
+        int sum = n + Snm1;
+        return sum;
+    }
     public static void main(String[] args) {
         int n =4 ;
         printDec(n);
         printInc(n);
         System.out.println(Factorial(n));
+        System.out.println(sumoffnn(n));
         
     }
     
