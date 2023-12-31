@@ -16,10 +16,20 @@ public class RecursionBasics {
         printInc(n-1);
         System.out.print(n+" ");
     }
+
+    public static int Factorial(int n){
+        if(n==0){
+            return 1;
+        }
+        //int fnm1 = Factorial(n-1);
+        int fn = n * Factorial(n-1);
+        return fn;
+    }
     public static void main(String[] args) {
-        int n =10 ;
+        int n =4 ;
         printDec(n);
         printInc(n);
+        System.out.println(Factorial(n));
         
     }
     
