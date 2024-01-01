@@ -35,7 +35,7 @@ public class RecursionBasics {
         return sum;
     }
 
-    public static int Fibonaaci(int n){
+    public static int Fibonaaci(int n){ // nth term of  a fibonacci Series
         if(n==0 || n==1){
             return n;
         }
