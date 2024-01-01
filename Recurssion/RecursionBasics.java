@@ -45,7 +45,7 @@ public class RecursionBasics {
         return Fib;
     }
 
-     public static boolean isSorted(int arr[], int i){ // checks whether the array is sorted or not 
+    public static boolean isSorted(int arr[], int i){ // checks whether the array is sorted or not 
         if(i == arr.length - 1){          //i = it is the place from where we have to check the sorted array
             return true;
         }
@@ -54,6 +54,18 @@ public class RecursionBasics {
         }
 
         return isSorted(arr, i+1);
+    }
+
+    public static int firstocc(int arr[],int n,int i){   //tells us the postion of occurance of the n key in the array
+        if(i == arr.length){          //i = it is the place from where we have to check the sorted array
+            return -1;
+        }
+        
+        if(arr[i] == n){
+            return i;
+        }
+        
+        return firstocc(arr, n, i+1);
     }
 
     public static void main(String[] args) {
@@ -65,7 +77,7 @@ public class RecursionBasics {
         System.out.println(sumoffnn(n));
         System.out.println(Fibonaaci(n));
         System.out.println(isSorted(arr, 1));
-        
+        System.out.println(firstocc(arr, n, 0));
     }
     
 }
