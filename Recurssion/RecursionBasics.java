@@ -44,13 +44,27 @@ public class RecursionBasics {
         int Fib = fibnm1 + fibnm2 ;
         return Fib;
     }
+
+     public static boolean isSorted(int arr[], int i){ // checks whether the array is sorted or not 
+        if(i == arr.length - 1){          //i = it is the place from where we have to check the sorted array
+            return true;
+        }
+        if(arr[i] > arr[i+1]){
+            return false;
+        }
+
+        return isSorted(arr, i+1);
+    }
+
     public static void main(String[] args) {
         int n =4 ;
+        int arr[] = {1,2,3,4};
         printDec(n);
         printInc(n);
         System.out.println(Factorial(n));
         System.out.println(sumoffnn(n));
         System.out.println(Fibonaaci(n));
+        System.out.println(isSorted(arr, 1));
         
     }
     
