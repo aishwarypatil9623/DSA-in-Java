@@ -68,6 +68,19 @@ public class RecursionBasics {
         return firstocc(arr, key, i+1);
     }
 
+    public static int lastocc(int arr[],int key,int i){   //tells us the postion of occurance of the n key in the array
+        if(i == arr.length){          //i = it is the place from where we have to check the sorted array
+            return -1;
+        }
+        
+        if(arr[i] == key){
+            return i;
+        }
+        
+        return firstocc(arr, key, i+1);
+    }
+
+
     public static void main(String[] args) {
         int n =4 ;
         int arr[] = {1,2,3,4};
