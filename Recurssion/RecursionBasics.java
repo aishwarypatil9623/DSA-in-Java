@@ -72,18 +72,24 @@ public class RecursionBasics {
         if(i == arr.length){          //i = it is the place from where we have to check the sorted array
             return -1;
         }
-        
+
+        int isFound = lastocc(arr, key, i+1);
+        if (isFound != -1){
+            return isFound;
+        }
+
+        //check with self
         if(arr[i] == key){
             return i;
         }
         
-        return firstocc(arr, key, i+1);
+        return isFound;
     }
 
 
     public static void main(String[] args) {
         int n =4 ;
-        int arr[] = {1,2,3,4};
+        int arr[] = {1,2,3,4,4,3,6,6,4};
         printDec(n);
         printInc(n);
         System.out.println(Factorial(n));
@@ -91,6 +97,7 @@ public class RecursionBasics {
         System.out.println(Fibonaaci(n));
         System.out.println(isSorted(arr, 1));
         System.out.println(firstocc(arr, n, 0));
+        System.out.println(lastocc(arr, n, 0));
     }
     
 }
