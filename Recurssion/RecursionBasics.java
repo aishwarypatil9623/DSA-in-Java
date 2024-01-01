@@ -86,6 +86,18 @@ public class RecursionBasics {
         return isFound;
     }
 
+    public static int lastocc2(int arr[],int key,int i){
+        if(i == arr.length){          //i = it is the place from where we have to check the sorted array
+            return -1;
+        }
+        int isFound = lastocc(arr, key, i+1);
+        if(isFound == -1 && arr[i] == key){
+            return i;
+        }
+
+        return isFound;
+
+    }
 
     public static void main(String[] args) {
         int n =4 ;
