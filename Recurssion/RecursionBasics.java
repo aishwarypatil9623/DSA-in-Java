@@ -99,6 +99,19 @@ public class RecursionBasics {
 
     }
 
+    public static int power(int x,int n){
+        if(n==0){
+            return 1;
+        }
+        // int xnm1 = power(x, n-1);
+        // int xn = x * xnm1;
+        // return xn;
+
+        //or 
+
+        return x * power(x, n-1);
+    }
+
     public static void main(String[] args) {
         int n =4 ;
         int arr[] = {1,2,3,4,4,3,6,6,4};
@@ -110,6 +123,7 @@ public class RecursionBasics {
         System.out.println(isSorted(arr, 1));
         System.out.println(firstocc(arr, n, 0));
         System.out.println(lastocc(arr, n, 0));
+        System.out.println(power(5, n));
     }
     
 }
