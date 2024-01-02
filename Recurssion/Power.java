@@ -13,7 +13,7 @@ public class Power {
 
         return halfpowersq;
     }
-
+    
     public static void main(String[] args) {
         System.out.println(optimizedpower(2, 10));
     }
