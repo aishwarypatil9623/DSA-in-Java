@@ -39,7 +39,7 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int arr[] = {1,9,5,8,4,2,6,7};
-        quickSort(arr, 0, arr.length-1);
+        quickSort(arr, 0, arr.length-1);  // O(n**2) worst case time complexity
         printarr(arr);
 
         
