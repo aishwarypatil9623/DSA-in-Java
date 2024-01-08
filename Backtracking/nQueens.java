@@ -27,7 +27,8 @@ public class nQueens {
     public static void NQueens(char[][] board, int row){
         //base
         if (row == board.length){
-            printBoard(board);
+            //printBoard(board);
+            count++;
             return;
         }
         //coloumn loop
@@ -48,6 +49,8 @@ public class nQueens {
                 System.out.println();
             }
     }
+
+    static int count = 0;
     public static void main(String[] args) {
 
         int n = 4;
@@ -59,6 +62,7 @@ public class nQueens {
             }
         }
         NQueens(board,0);
+        System.out.println("Total ways to Solve " + count);
     }
     
 }
