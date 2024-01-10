@@ -15,7 +15,7 @@ public class basics {
 
         //reverse print  - O(n) time complexity
         for(int i=list.size()-1; i>=0; i--) {
-            System.out.println(list.get(i) + " ");
+            System.out.print(list.get(i) + " ");
         }
         System.out.println();
     }
