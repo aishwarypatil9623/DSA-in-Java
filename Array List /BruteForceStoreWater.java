@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class BruteForceStoreWater {
     public static int StoreWater(ArrayList<Integer> height) {
         int maxWater = 0;
-        //brute Force
+        //brute Force - O(n)
         for(int i=0; i<height.size(); i++) {
             for(int j=0; j<height.size(); j++) {
                 int ht = Math.min(height.get(i), height.get(i));
