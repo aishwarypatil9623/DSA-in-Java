@@ -109,6 +109,21 @@ public class Linkelist {
         return val;
     }
     
+    public int itrSearch(int key) {
+        Node temp = head;
+        int i = 0; 
+
+        while (temp != null) {
+            if(temp.data == key) { // Key Found
+                return i;
+            }
+            temp = temp.next;
+            i++;            
+        }
+
+        //key not found 
+        return -1;
+    }
 
     public static void main(String[] args) {
         Linkelist ll = new Linkelist();
@@ -133,6 +148,9 @@ public class Linkelist {
         ll.removeLast();
         ll.print();
         System.out.println(ll.size);
+
+        System.out.println(ll.itrSearch(3));
+        System.out.println(ll.itrSearch(10));
 
     }
 }
