@@ -86,6 +86,29 @@ public class Linkelist {
         return val;
     }
     
+    public int removeLast() {
+        if (size == 0) {
+            System.out.println("LL is empty");
+            return Integer.MIN_VALUE;
+        } else if (size == 1) {
+            int val = head.data;
+            head = tail = null;
+            size = 0;
+            return val;
+        }
+    
+        Node prev = head;
+        for (int i = 0; i < size - 2; i++) {
+            prev = prev.next;
+        }
+    
+        int val = tail.data;
+        tail = prev;
+        tail.next = null;
+        size--;
+        return val;
+    }
+    
 
     public static void main(String[] args) {
         Linkelist ll = new Linkelist();
@@ -106,6 +129,10 @@ public class Linkelist {
 
         ll.removeFirst();
         ll.print();
+
+        ll.removeLast();
+        ll.print();
+        System.out.println(ll.size);
 
     }
 }
