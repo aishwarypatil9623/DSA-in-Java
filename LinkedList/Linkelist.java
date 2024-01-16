@@ -71,6 +71,20 @@ public class Linkelist {
         newNode.next = temp.next;
         temp.next = newNode;
     }
+
+    public int removeFirst() {
+        if(size == 0) {
+            System.out.println();
+            return Integer.MIN_VALUE;
+        } else if(size == 1) {
+            int val =head.data;
+            head = tail = null;
+            return val;
+        }
+        int val = head.data;
+        head = head.next;
+        return val;
+    }
     
 
     public static void main(String[] args) {
@@ -88,6 +102,10 @@ public class Linkelist {
         ll.add(2, 9); //index,data
 
         ll.print();
-        System.out.println(ll.size);
+        //System.out.println(ll.size);
+
+        ll.removeFirst();
+        ll.print();
+
     }
 }
