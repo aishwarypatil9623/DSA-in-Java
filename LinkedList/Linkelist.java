@@ -11,10 +11,12 @@ public class Linkelist {
 
     public static Node head;
     public static Node tail;
+    public static int size;
 
-    public void addfirst(int data) {
+    public void addfirst(int data) {     
         // step1 = create new node
         Node newNode = new Node(data);
+        size++;
 
         // step2 - newNode next = Head
         newNode.next = head;   // link
@@ -28,6 +30,7 @@ public class Linkelist {
 
     public void addlast(int data) {
         Node newNode = new Node(data);
+        size++;
         if (head == null) {
             head = tail = newNode;
         } else {
@@ -49,6 +52,27 @@ public class Linkelist {
         System.out.println();
     }
 
+    public void add(int idx, int data){
+        if(idx == 0) {
+            addfirst(data);
+            return;
+        }
+        Node newNode = new Node(data);
+        size++;
+        Node temp = head;
+        int i = 0;
+
+        while(i < idx-1){
+            temp = temp.next;
+            i++;
+        }
+
+        // i = idx -1;  temp  -> prev
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+    
+
     public static void main(String[] args) {
         Linkelist ll = new Linkelist();
 
@@ -61,5 +85,9 @@ public class Linkelist {
         ll.print();
         ll.addlast(4);
         ll.print();
+        ll.add(2, 9); //index,data
+
+        ll.print();
+        System.out.println(ll.size);
     }
 }
