@@ -227,7 +227,7 @@ public class Linkelist {
 
         return true;
     }
-    
+
     public static boolean isCycle(){
         Node slow = head;
         Node fast = head;
@@ -243,58 +243,93 @@ public class Linkelist {
         return false;  //cycle doesn't exist
     }
 
-    public static void main(String[] args) {
-        Linkelist ll = new Linkelist();
-
-        ll.print();
-        ll.addfirst(2);
-        ll.print();
-        ll.addfirst(1);
-        ll.print();
-        ll.addlast(3);
-        ll.print();
-        ll.addlast(4);
-        ll.print();
-        ll.add(2, 9); //index,data
-
-        ll.print();
-        //System.out.println(ll.size);
-
-        ll.removeFirst();
-        ll.print();
-
-        ll.removeLast();
-        ll.print();
-        System.out.println(ll.size);
-
-        System.out.println(ll.itrSearch(3));
-        System.out.println(ll.itrSearch(10));
-
-        System.out.println(ll.recSearch(3));
-        System.out.println(ll.recSearch(10));
-
-        ll.print();
-        ll.reverse();
-        ll.print();
-
-        ll.deleteNthNodefromEnd(3);
-        ll.print();
-
-        ll.addlast(1);
-        ll.addlast(2);
-        ll.addlast(2);
-        ll.addlast(1);
-
-        ll.print();
-        System.out.println(ll.checkpalindrome());
-
-            head = new Node(1);
-            head.next= new Node(2);
-            head.next.next = new Node(3);
-            head.next.next.next = head;
-            //1->2->3->1
-            System.out.println(isCycle());
+    public static void removeCycle(){
+        //detect cycle
+        Node slow = head;
+        Node fast = head;
+        boolean cycle = false;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(fast == slow){
+                cycle = true;
+                break;
+            }
+        }
+        if(cycle == false){
+            return;
         }
 
+        //find Meeting point
+        slow = head;
+        Node prev = null; //last node
+        while(slow != fast) {
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        //remove cycle -> last.next = null
+        if (prev != null) { // Check if prev is not null to avoid NullPointerException
+            prev.next = null;
+        }
     }
+    
+    public static void main(String[] args) {
+        // Linkelist ll = new Linkelist();
+
+        // ll.print();
+        // ll.addfirst(2);
+        // ll.print();
+        // ll.addfirst(1);
+        // ll.print();
+        // ll.addlast(3);
+        // ll.print();
+        // ll.addlast(4);
+        // ll.print();
+        // ll.add(2, 9); //index,data
+
+        // ll.print();
+        // //System.out.println(ll.size);
+
+        // ll.removeFirst();
+        // ll.print();
+
+        // ll.removeLast();
+        // ll.print();
+        // System.out.println(ll.size);
+
+        // System.out.println(ll.itrSearch(3));
+        // System.out.println(ll.itrSearch(10));
+
+        // System.out.println(ll.recSearch(3));
+        // System.out.println(ll.recSearch(10));
+
+        // ll.print();
+        // ll.reverse();
+        // ll.print();
+
+        // ll.deleteNthNodefromEnd(3);
+        // ll.print();
+
+        // ll.addlast(1);
+        // ll.addlast(2);
+        // ll.addlast(2);
+        // ll.addlast(1);
+
+        // ll.print();
+        // System.out.println(ll.checkpalindrome());
+
+        head = new Node(1);
+        Node temp = new Node(2);
+        head.next= temp;
+        head.next.next = new Node(3);
+        head.next.next.next = temp;
+        //1->2->3->2
+        System.out.println(isCycle());
+        removeCycle();
+        System.out.println(isCycle());
+        }
+
+}
 
