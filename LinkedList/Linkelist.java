@@ -183,6 +183,50 @@ public class Linkelist {
         return;
     }
 
+    //Slow fast Approach
+    public Node findmis(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next; //slow +1
+            fast = fast.next.next; //fast +2
+        }
+        return slow;
+    }
+
+    public boolean checkpalindrome(){
+        if(head == null || head.next == null){
+            return true;
+        }
+        // Step 1 :- Find Mid
+        Node midNode = findmis(head);
+
+        // Step 2 :- Reverse 2nd Half
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        Node right = prev; //right half head
+        Node left = head; // 
+
+        // Step 3 :- Check left Half & Right Half 
+        while(right != null){
+            if(left.data != right.data) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+
+        return true;
+    }
     public static void main(String[] args) {
         Linkelist ll = new Linkelist();
 
@@ -219,5 +263,14 @@ public class Linkelist {
 
         ll.deleteNthNodefromEnd(3);
         ll.print();
+
+        ll.addlast(1);
+        ll.addlast(2);
+        ll.addlast(2);
+        ll.addlast(1);
+
+        ll.print();
+        System.out.println(ll.checkpalindrome());
+
     }
 }
