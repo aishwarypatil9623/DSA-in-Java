@@ -125,6 +125,38 @@ public class Linkelist {
         return -1;
     }
 
+    public int helper(Node head,int key){
+        if(head == null){
+            return -1;
+        }
+
+        if(head.data == key) {
+            return 0;
+        }
+        int idx = helper(head.next, key);
+        if(idx == -1) {
+            return -1;
+        }
+        return idx+1;
+    }
+    public int recSearch(int key) {
+        return helper(head, key);
+    }
+
+    public void reverse() {
+        Node prev = null;
+        Node curr = tail = head; 
+        Node next;
+
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+
     public static void main(String[] args) {
         Linkelist ll = new Linkelist();
 
@@ -151,6 +183,13 @@ public class Linkelist {
 
         System.out.println(ll.itrSearch(3));
         System.out.println(ll.itrSearch(10));
+
+        System.out.println(ll.recSearch(3));
+        System.out.println(ll.recSearch(10));
+
+        ll.print();
+        ll.reverse();
+        ll.print();
 
     }
 }
