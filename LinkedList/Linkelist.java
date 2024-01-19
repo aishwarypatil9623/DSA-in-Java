@@ -228,6 +228,8 @@ public class Linkelist {
         return true;
     }
 
+    //LINKEDLIST 2
+
     public static boolean isCycle(){
         Node slow = head;
         Node fast = head;
