@@ -16,4 +16,5 @@ public class LinkelistFramework {
         System.out.println(ll);
     }
     
+    public Node Mers
 }
