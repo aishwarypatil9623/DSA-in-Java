@@ -31,7 +31,13 @@ public class StackinLinkedlist {
 
         //pop
         public static int pop() {
+            return 0;
             
+        }
+
+        public char[] peek() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'peek'");
         }
     }
     public static void main(String[] args) {
@@ -47,6 +53,4 @@ public class StackinLinkedlist {
         }
     }
     
-}
-
 }
