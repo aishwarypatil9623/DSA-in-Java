@@ -31,7 +31,20 @@ public class StackinLinkedlist {
 
         //pop
         public static int pop() {
-            
+            if(isEmpty()){
+                return -1;
+            }
+            int top = head.data;
+            head = head.next;
+            return top;
+        }
+
+        //peek
+        public static int peek() {
+            if(isEmpty()){
+                return -1;
+            }
+            return head.data;
         }
     }
     public static void main(String[] args) {
@@ -47,5 +60,4 @@ public class StackinLinkedlist {
         }
     }
     
-}
 }
