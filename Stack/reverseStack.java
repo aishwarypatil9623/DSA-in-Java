@@ -17,7 +17,7 @@ public class reverseStack {
         }
         int top = s.pop();
         ReverseStack(s);
-        pushatBottom(s, top);
+        pushatBottom(s, top); // fyfyufufh
     }
 
     public static void printStack(Stack<Integer> s){
